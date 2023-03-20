@@ -31,10 +31,10 @@ stages:
     - script: |
         python3.7 -m pip install --upgrade pip
         python3.7 -m pip install setup
-        echo ("======================")
+        echo "======================"
         echo $(pwd)
         echo $(projectRoot)
-        echo ("======================")
+        echo "======================"
         python3.7 -m pip install -r requirements.txt
       workingDirectory: $(projectRoot)
       displayName: 'myStep 1'
