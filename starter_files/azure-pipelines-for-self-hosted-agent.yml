@@ -31,27 +31,27 @@ stages:
     - script: |
         python3.7 -m pip install --upgrade pip
         python3.7 -m pip install setup
-        python3.7 -m pip install -r $(projectRoot)/starter_files/requirements.txt
-      workingDirectory: $(projectRoot)
+        python3.7 -m pip install -r requirements.txt
+      workingDirectory: $(projectRoot)/starter_files/
       displayName: 'myStep 1'
 
     - script: |
         export PATH=$HOME/.local/bin:$PATH
         make install
-      workingDirectory: $(projectRoot)
+      workingDirectory: $(projectRoot)/starter_files/
       displayName: 'myStep 2'
 
     - script: |
         export PATH=$HOME/.local/bin:$PATH
         make install
         make lint
-      workingDirectory: $(projectRoot)
+      workingDirectory: $(projectRoot)/starter_files/
       displayName:  'myStep 3 - Run lint tests'
 
     - task: ArchiveFiles@2
       displayName: 'myStep 4 - Archive files'
       inputs:
-        rootFolderOrFile: '$(projectRoot)'
+        rootFolderOrFile: '$(projectRoot)/starter_files/'
         includeRootFolder: false
         archiveType: zip
         archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
