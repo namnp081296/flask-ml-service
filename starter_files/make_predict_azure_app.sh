@@ -25,5 +25,5 @@ curl -d '{
    }
 }'\
      -H "Content-Type: application/json" \
-     -X POST https://<yourappname>.azurewebsites.net:$PORT/predict 
+     -X POST https://lemon-wave-41de4eec6948486d96c3809a828003b9.azurewebsites.net:$PORT/predict 
      # TODO: Replace the <yourappname> with your application name 
